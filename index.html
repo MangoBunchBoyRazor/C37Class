@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
-    <script src="p5.play.js"></script>
+    <!--script src="p5.play.js"></script-->
 
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
@@ -14,13 +14,24 @@
 
     <script>
       // Your web app's Firebase configuration
-      //add here
+      var firebaseConfig = {
+        apiKey: "AIzaSyDLFicrn2DRce1yXWLLQSIG4KdoF9UDffU",
+        authDomain: "c34-class-8a482.firebaseapp.com",
+        databaseURL: "https://c34-class-8a482.firebaseio.com",
+        projectId: "c34-class-8a482",
+        storageBucket: "c34-class-8a482.appspot.com",
+        messagingSenderId: "573200906170",
+        appId: "1:573200906170:web:7d6409bc351367bc1e0f83"
+      };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
     </script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <script src="Form.js"></script>
+    <script src="game.js"></script>
+    <script src="player.js"></script>
     <script src="sketch.js"></script>
   </body>
 </html>
