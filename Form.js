@@ -2,32 +2,31 @@ class Form{
     constructor(){
     }
     display(){
-        var nameInput = createInput('name');
-        var submitBtn = createButton('submit');
-        nameInput.position(450,220);
-        submitBtn.position(530,250);
-        submitBtn.mouseClicked(function(){
-            gameState = 1;
-            nameInput.remove();
-            submitBtn.remove();
-            database.ref('players/'+nameInput.value()).set({
-                name: nameInput.value()
+        if(gameState == 0){
+            var title = createElement('h2','Hello Gamer!');
+            title.position(width/2-50,50);
+            var nameInput = createInput();
+            nameInput.attribute('placeholder','name');
+            var submitBtn = createButton('submit');
+            nameInput.position(width/2-50,120);
+            nameInput.input(function(){player.name = nameInput.value()});
+            submitBtn.position(width/2-50,150);
+            submitBtn.mouseClicked(function(){
+                if(nameInput.value() == ""){
+                    alert('Give a name');
+                    nameInput.elt.focus();
+                    return 0;
+                }window.greeting = createElement('h3',`hello ${nameInput.value()}<br> Waiting for other players..`);
+                greeting.position(width/2-50,170);
+                title.hide();
+                nameInput.hide();
+                submitBtn.hide();
+                player.updateInfo();
+                player.updatePlayer(playerCount+1);   
             });
-            player.getPlayerCount();
-            let toupdate = true;
-            for(var i = 0; i < players.length; i++){
-                if(nameInput.value() == players[i])
-                    toupdate = false;
-            }
-            if(toupdate){
-            let newCount = playerCount + 1;
-            player.updatePlayer(newCount);
-            }
-            var greeting = createElement('h3',`hello ${nameInput.value()}`);
-            greeting.position(300,170);
-            var backBtn = createButton('back');
-            backBtn.position(300,120);
-            backBtn.mouseClicked(function(){backBtn.remove();greeting.remove();gameState=0;game.startGame()})
-        });
+        }
+        else if(gameState == 2){
+            //
+        }
     }
 }
