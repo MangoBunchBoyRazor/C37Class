@@ -4,13 +4,13 @@ class Form{
     display(){
         if(gameState == 0){
             var title = createElement('h2','Hello Gamer!');
-            title.position(width/2-50,50);
+            title.position(width/2-80,50);
             var nameInput = createInput();
             nameInput.attribute('placeholder','name');
             var submitBtn = createButton('submit');
-            nameInput.position(width/2-50,120);
+            nameInput.position(width/2-100,120);
             nameInput.input(function(){player.name = nameInput.value()});
-            submitBtn.position(width/2-50,150);
+            submitBtn.position(width/2-30,150);
             submitBtn.mouseClicked(function(){
                 if(nameInput.value() == ""){
                     alert('Give a name');

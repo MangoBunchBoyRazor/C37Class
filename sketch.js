@@ -4,7 +4,7 @@ var player, game, gameState, form, playerCount, players = [],playersData;
 
 function setup(){
   database = firebase.database();
-  createCanvas(600,400);
+  createCanvas(displayWidth-20,displayHeight-30);
 
   gameState = 0;
   form = new Form();
@@ -17,10 +17,17 @@ function setup(){
 function draw(){
   background("white");
   if(gameState == 1){
+    push();
     for(let i = 0; i < players.length; i++){
-      rect(i*150+50,height-playersData[players[i]].distance,50,100);
+      if(i == player.index){
+        fill('red');
+      }
+      else
+        fill('black');
+      rect(i*displayWidth/4+50,height-playersData[players[i]].distance,50,100);
       player.play();
     }
+    pop();
   }
   if(gameState == 2){
     push();
